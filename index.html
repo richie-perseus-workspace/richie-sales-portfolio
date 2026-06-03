@@ -1,0 +1,1065 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gahdaco Richard (Richie) — Sales Professional</title>
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --red: #D91111;
+      --red-bright: #FF2020;
+      --red-dim: #8B0000;
+      --red-glow: rgba(217,17,17,0.3);
+      --bg: #080808;
+      --bg-2: #0f0f0f;
+      --bg-3: #141414;
+      --glass: rgba(255,255,255,0.04);
+      --glass-border: rgba(255,255,255,0.08);
+      --glass-hover: rgba(255,255,255,0.07);
+      --white: #ffffff;
+      --white-60: rgba(255,255,255,0.6);
+      --white-30: rgba(255,255,255,0.3);
+      --white-10: rgba(255,255,255,0.1);
+      --white-05: rgba(255,255,255,0.05);
+      --grid-line: rgba(255,255,255,0.04);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Segoe UI', Arial, sans-serif;
+      background: var(--bg);
+      color: var(--white);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* GRID PATTERN */
+    .grid-bg {
+      background-image:
+        linear-gradient(var(--grid-line) 1px, transparent 1px),
+        linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
+      background-size: 64px 64px;
+    }
+
+    /* ORBS */
+    .orb {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(80px);
+      pointer-events: none;
+      will-change: transform;
+    }
+    .orb-1 {
+      width: 600px; height: 600px;
+      background: radial-gradient(circle, rgba(180,10,10,0.18) 0%, transparent 70%);
+      top: -150px; left: -100px;
+      animation: float1 18s ease-in-out infinite;
+    }
+    .orb-2 {
+      width: 400px; height: 400px;
+      background: radial-gradient(circle, rgba(217,17,17,0.12) 0%, transparent 70%);
+      top: 100px; right: -80px;
+      animation: float2 14s ease-in-out infinite;
+    }
+    .orb-3 {
+      width: 300px; height: 300px;
+      background: radial-gradient(circle, rgba(255,30,30,0.08) 0%, transparent 70%);
+      bottom: 0; left: 40%;
+      animation: float3 20s ease-in-out infinite;
+    }
+    @keyframes float1 { 0%,100%{transform:translate(0,0)} 50%{transform:translate(40px,30px)} }
+    @keyframes float2 { 0%,100%{transform:translate(0,0)} 50%{transform:translate(-30px,40px)} }
+    @keyframes float3 { 0%,100%{transform:translate(0,0)} 50%{transform:translate(20px,-40px)} }
+
+    /* NAV */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(8,8,8,0.8);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--glass-border);
+      padding: 0 48px;
+      height: 64px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .nav-logo {
+      font-family: 'Segoe UI', Arial, sans-serif;
+      font-weight: 800;
+      font-size: 16px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--white);
+    }
+    .nav-logo span { color: var(--red-bright); }
+    .nav-links { display: flex; gap: 32px; align-items: center; }
+    .nav-links a {
+      color: var(--white-60);
+      text-decoration: none;
+      font-size: 13px;
+      font-weight: 500;
+      letter-spacing: 0.5px;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--white); }
+    .nav-cta {
+      background: var(--red);
+      color: white !important;
+      padding: 8px 20px;
+      border-radius: 4px;
+      font-weight: 600 !important;
+      transition: background 0.2s !important;
+    }
+    .nav-cta:hover { background: var(--red-bright) !important; color: white !important; }
+
+    /* HERO */
+    .hero {
+      position: relative;
+      overflow: hidden;
+      padding: 120px 48px 100px;
+      min-height: 90vh;
+      display: flex;
+      align-items: center;
+    }
+    .hero-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      width: 100%;
+      position: relative;
+      z-index: 2;
+    }
+    .hero-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      border: 1px solid rgba(217,17,17,0.4);
+      background: rgba(217,17,17,0.1);
+      color: #FF6B6B;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      padding: 6px 16px;
+      border-radius: 2px;
+      margin-bottom: 32px;
+    }
+    .hero-tag::before {
+      content: '';
+      width: 6px;
+      height: 6px;
+      background: var(--red-bright);
+      border-radius: 50%;
+      animation: pulse 2s infinite;
+    }
+    @keyframes pulse {
+      0%,100%{opacity:1;transform:scale(1)}
+      50%{opacity:0.4;transform:scale(0.8)}
+    }
+    .hero h1 {
+      font-family: 'Segoe UI', Arial, sans-serif;
+      font-size: clamp(48px, 7vw, 88px);
+      font-weight: 800;
+      line-height: 1.0;
+      letter-spacing: -2px;
+      margin-bottom: 24px;
+    }
+    .hero h1 .name-block {
+      display: block;
+      color: var(--white);
+    }
+    .hero h1 .tagline-block {
+      display: block;
+      color: var(--red-bright);
+      -webkit-text-stroke: 0px;
+    }
+    .hero-sub {
+      font-size: 18px;
+      color: var(--white-60);
+      max-width: 540px;
+      line-height: 1.7;
+      margin-bottom: 48px;
+      font-weight: 300;
+    }
+    .hero-actions {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+    .btn-primary {
+      background: var(--red);
+      color: white;
+      padding: 14px 32px;
+      font-size: 14px;
+      font-weight: 600;
+      text-decoration: none;
+      border-radius: 4px;
+      letter-spacing: 0.5px;
+      transition: background 0.2s, box-shadow 0.2s;
+      font-family: 'Segoe UI', Arial, sans-serif;
+    }
+    .btn-primary:hover {
+      background: var(--red-bright);
+      box-shadow: 0 0 32px var(--red-glow);
+    }
+    .hero-socials {
+      display: flex;
+      gap: 24px;
+      margin-top: 28px;
+      align-items: center;
+    }
+    .hero-socials a {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--white-60);
+      text-decoration: none;
+      font-size: 13px;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+    .hero-socials a:hover { color: var(--white); }
+
+    .btn-ghost {
+      background: transparent;
+      color: var(--white-60);
+      border: 1px solid var(--glass-border);
+      padding: 14px 32px;
+      font-size: 14px;
+      font-weight: 500;
+      text-decoration: none;
+      border-radius: 4px;
+      transition: border-color 0.2s, color 0.2s;
+      font-family: 'Segoe UI', Arial, sans-serif;
+    }
+    .btn-ghost:hover { border-color: var(--white-30); color: var(--white); }
+
+    /* STATS STRIP */
+    .stats-strip {
+      border-top: 1px solid var(--glass-border);
+      border-bottom: 1px solid var(--glass-border);
+      background: rgba(255,255,255,0.02);
+      padding: 0;
+    }
+    .stats-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+    }
+    .stat-item {
+      flex: 1;
+      padding: 40px 32px;
+      border-right: 1px solid var(--glass-border);
+      text-align: center;
+    }
+    .stat-item:last-child { border-right: none; }
+    .stat-num {
+      font-family: 'Segoe UI', Arial, sans-serif;
+      font-size: 44px;
+      font-weight: 800;
+      color: var(--white);
+      line-height: 1;
+      margin-bottom: 6px;
+    }
+    .stat-num span { color: var(--red-bright); }
+    .stat-label {
+      font-size: 12px;
+      color: var(--white-60);
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      font-weight: 500;
+    }
+
+    /* VIDEO */
+    .video-section {
+      padding: 100px 48px;
+      position: relative;
+    }
+    .section-eyebrow {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--red-bright);
+      margin-bottom: 12px;
+    }
+    .section-title {
+      font-family: 'Segoe UI', Arial, sans-serif;
+      font-size: clamp(28px, 4vw, 48px);
+      font-weight: 800;
+      color: var(--white);
+      line-height: 1.1;
+      letter-spacing: -1px;
+      margin-bottom: 48px;
+    }
+    .section-title .dim { color: var(--white-30); }
+    .video-wrap {
+      max-width: 880px;
+      margin: 0 auto;
+      position: relative;
+    }
+    .video-frame {
+      border: 1px solid var(--glass-border);
+      border-top: 2px solid var(--red);
+      border-radius: 6px;
+      overflow: hidden;
+      background: #000;
+      box-shadow: 0 40px 80px rgba(0,0,0,0.6), 0 0 0 1px rgba(217,17,17,0.5), 0 0 40px rgba(217,17,17,0.35), 0 0 80px rgba(217,17,17,0.15);
+      position: relative;
+    }
+    .video-frame video {
+      width: 100%;
+      display: block;
+    }
+    .video-label {
+      position: absolute;
+      top: 16px;
+      left: 16px;
+      background: rgba(0,0,0,0.7);
+      backdrop-filter: blur(10px);
+      border: 1px solid var(--glass-border);
+      color: var(--white-60);
+      font-size: 11px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      padding: 5px 12px;
+      border-radius: 2px;
+    }
+
+    /* LAYOUT WRAPPER */
+    .page-wrap {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 48px;
+    }
+
+    /* SECTION DIVIDER */
+    .section-pad {
+      padding: 100px 48px;
+    }
+
+    /* EXPERIENCE */
+    .exp-grid {
+      display: grid;
+      grid-template-columns: 280px 1fr;
+      gap: 0;
+      max-width: 1100px;
+      margin: 0 auto;
+      align-items: start;
+    }
+    .exp-sidebar {
+      padding-right: 48px;
+      position: sticky;
+      top: 80px;
+      height: fit-content;
+    }
+    .exp-sidebar p {
+      font-size: 14px;
+      color: var(--white-60);
+      line-height: 1.7;
+      margin-top: 12px;
+    }
+    .exp-list { display: flex; flex-direction: column; gap: 2px; }
+    .exp-card {
+      background: var(--glass);
+      border: 1px solid var(--glass-border);
+      border-radius: 6px;
+      padding: 28px 32px;
+      transition: background 0.2s, border-color 0.2s, box-shadow 0.2s;
+      position: relative;
+      overflow: hidden;
+    }
+    .exp-card::before {
+      content: '';
+      position: absolute;
+      left: 0; top: 0; bottom: 0;
+      width: 2px;
+      background: transparent;
+      transition: background 0.2s;
+    }
+    .exp-card:hover {
+      background: var(--glass-hover);
+      border-color: rgba(255,255,255,0.12);
+      box-shadow: 0 4px 32px rgba(0,0,0,0.3);
+    }
+    .exp-card:hover::before { background: var(--red); }
+    .exp-company {
+      font-family: 'Segoe UI', Arial, sans-serif;
+      font-size: 17px;
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 3px;
+    }
+    .exp-role {
+      font-size: 12px;
+      color: var(--red-bright);
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      font-weight: 600;
+      margin-bottom: 3px;
+    }
+    .exp-date {
+      font-size: 12px;
+      color: var(--white-30);
+      margin-bottom: 16px;
+    }
+    .exp-bullets { list-style: none; display: flex; flex-direction: column; gap: 6px; }
+    .exp-bullets li {
+      font-size: 14px;
+      color: var(--white-60);
+      padding-left: 16px;
+      position: relative;
+      line-height: 1.6;
+    }
+    .exp-bullets li::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 9px;
+      width: 5px;
+      height: 1px;
+      background: var(--red);
+    }
+    .exp-badges {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-top: 16px;
+    }
+    .badge {
+      display: inline-block;
+      background: rgba(217,17,17,0.12);
+      border: 1px solid rgba(217,17,17,0.25);
+      color: #FF8080;
+      font-size: 11px;
+      font-weight: 600;
+      padding: 3px 10px;
+      border-radius: 2px;
+      letter-spacing: 0.5px;
+    }
+
+    /* SKILLS */
+    .skills-section {
+      background: var(--bg-2);
+      border-top: 1px solid var(--glass-border);
+      border-bottom: 1px solid var(--glass-border);
+    }
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+      gap: 1px;
+      background: var(--glass-border);
+      border: 1px solid var(--glass-border);
+      border-radius: 6px;
+      overflow: hidden;
+    }
+    .skill-cell {
+      background: var(--bg-2);
+      padding: 16px 20px;
+      font-size: 13px;
+      color: var(--white-60);
+      font-weight: 500;
+      transition: background 0.15s, color 0.15s;
+      cursor: default;
+    }
+    .skill-cell:hover {
+      background: var(--glass);
+      color: var(--white);
+    }
+
+    /* AI SECTION */
+    .ai-section {
+      padding: 100px 48px;
+      position: relative;
+      overflow: hidden;
+    }
+    .ai-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    .glass-card {
+      background: var(--glass);
+      border: 1px solid var(--glass-border);
+      border-radius: 6px;
+      padding: 32px;
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      transition: background 0.2s, border-color 0.2s, box-shadow 0.2s;
+    }
+    .glass-card:hover {
+      background: var(--glass-hover);
+      border-color: rgba(255,255,255,0.12);
+      box-shadow: 0 8px 40px rgba(0,0,0,0.4);
+    }
+    .glass-card.featured {
+      border-top: 2px solid var(--red);
+      grid-column: span 2;
+      background: rgba(217,17,17,0.04);
+      border-color: rgba(217,17,17,0.2);
+    }
+    .card-title {
+      font-family: 'Segoe UI', Arial, sans-serif;
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 14px;
+    }
+    .card-body {
+      font-size: 14px;
+      color: var(--white-60);
+      line-height: 1.7;
+    }
+    .card-body ul { list-style: none; display: flex; flex-direction: column; gap: 6px; margin-top: 12px; }
+    .card-body ul li {
+      padding-left: 14px;
+      position: relative;
+      font-size: 14px;
+    }
+    .card-body ul li::before {
+      content: '';
+      position: absolute;
+      left: 0; top: 9px;
+      width: 5px; height: 1px;
+      background: var(--red);
+    }
+    .tech-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 16px;
+    }
+    .pill {
+      background: rgba(255,255,255,0.06);
+      border: 1px solid var(--glass-border);
+      color: var(--white-60);
+      font-size: 11px;
+      font-weight: 600;
+      padding: 4px 12px;
+      border-radius: 2px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    /* BRING SECTION */
+    .bring-section {
+      padding: 100px 48px;
+      background: var(--bg-2);
+      border-top: 1px solid var(--glass-border);
+    }
+    .bring-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    .bring-card {
+      background: var(--glass);
+      border: 1px solid var(--glass-border);
+      border-radius: 6px;
+      padding: 32px 28px;
+      transition: background 0.2s, border-color 0.2s;
+    }
+    .bring-card:hover {
+      background: var(--glass-hover);
+      border-color: rgba(255,255,255,0.12);
+    }
+    .bring-number {
+      font-family: 'Segoe UI', Arial, sans-serif;
+      font-size: 48px;
+      font-weight: 800;
+      color: rgba(217,17,17,0.2);
+      line-height: 1;
+      margin-bottom: 16px;
+    }
+    .bring-card h3 {
+      font-family: 'Segoe UI', Arial, sans-serif;
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 8px;
+    }
+    .bring-card p {
+      font-size: 14px;
+      color: var(--white-60);
+      line-height: 1.7;
+    }
+
+    /* CTA */
+    .cta-section {
+      padding: 120px 48px;
+      position: relative;
+      overflow: hidden;
+      text-align: center;
+    }
+    .cta-inner {
+      position: relative;
+      z-index: 2;
+      max-width: 640px;
+      margin: 0 auto;
+    }
+    .cta-section h2 {
+      font-family: 'Segoe UI', Arial, sans-serif;
+      font-size: clamp(36px, 5vw, 64px);
+      font-weight: 800;
+      color: var(--white);
+      line-height: 1.05;
+      letter-spacing: -2px;
+      margin-bottom: 20px;
+    }
+    .cta-section h2 span { color: var(--red-bright); }
+    .cta-section p {
+      font-size: 17px;
+      color: var(--white-60);
+      line-height: 1.7;
+      margin-bottom: 48px;
+    }
+    .cta-buttons {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .cta-orb {
+      position: absolute;
+      width: 800px; height: 800px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(180,10,10,0.12) 0%, transparent 60%);
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      filter: blur(60px);
+      pointer-events: none;
+    }
+
+    /* FOOTER */
+    footer {
+      padding: 32px 48px;
+      border-top: 1px solid var(--glass-border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    footer .footer-name {
+      font-family: 'Segoe UI', Arial, sans-serif;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--white-30);
+    }
+    footer .footer-links { display: flex; gap: 24px; }
+    footer .footer-links a {
+      font-size: 13px;
+      color: var(--white-60);
+      text-decoration: none;
+      transition: color 0.2s;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    footer .footer-links a:hover { color: var(--white); }
+    footer .footer-links a svg { flex-shrink: 0; }
+
+    /* SCROLL REVEAL */
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 900px) {
+      nav { padding: 0 24px; }
+      .nav-links { display: none; }
+      .hero { padding: 80px 24px 60px; }
+      .stats-inner { flex-direction: column; }
+      .stat-item { border-right: none; border-bottom: 1px solid var(--glass-border); }
+      .stat-item:last-child { border-bottom: none; }
+      .section-pad { padding: 60px 24px; }
+      .exp-grid { grid-template-columns: 1fr; }
+      .exp-sidebar { position: static; padding-right: 0; margin-bottom: 32px; }
+      .ai-grid { grid-template-columns: 1fr; }
+      .glass-card.featured { grid-column: span 1; }
+      .bring-grid { grid-template-columns: 1fr; }
+      .video-section { padding: 60px 24px; }
+      .ai-section { padding: 60px 24px; }
+      .bring-section { padding: 60px 24px; }
+      .cta-section { padding: 80px 24px; }
+      footer { flex-direction: column; gap: 16px; padding: 24px; }
+      .skills-section .section-pad { padding: 60px 24px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">G<span>.</span>RICHARD</div>
+  <div class="nav-links">
+    <a href="#video">Watch Application</a>
+    <a href="#experience">Experience</a>
+    <a href="ai.html">AI Portfolio</a>
+    <a href="https://calendly.com/richie-perseus-io/30min?month=2026-06" target="_blank" class="nav-cta">Get in Touch</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero grid-bg">
+  <div class="orb orb-1"></div>
+  <div class="orb orb-2"></div>
+  <div class="orb orb-3"></div>
+  <div class="hero-inner">
+    <div class="hero-tag reveal">Available for High-Ticket Sales Roles</div>
+    <h1 class="reveal">
+      <span class="name-block">Gahdaco Richard</span>
+      <span class="name-block" style="font-size:0.55em; color: var(--white-30); letter-spacing: -1px; font-weight:600;">(Richie)</span>
+      <span class="tagline-block">I Fill Pipelines.</span>
+    </h1>
+    <p class="hero-sub reveal">
+      High-ticket appointment setter, closer, and sales team manager. 3+ years across D2D, B2B, dealership, and remote high-ticket. $960,000 in tracked cash collected. Based in Calgary, AB.
+    </p>
+    <div class="hero-actions reveal">
+      <a href="#video" class="btn-primary">Watch My Application</a>
+      <a href="#contact" class="btn-ghost">Get in Touch</a>
+    </div>
+    <div class="hero-socials reveal">
+      <a href="https://www.instagram.com/g.riichie/" target="_blank" rel="noopener">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+        @g.riichie
+      </a>
+      <a href="https://www.linkedin.com/in/gahdaco-richard-429783230/" target="_blank" rel="noopener">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+        Gahdaco Richard
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- STATS STRIP -->
+<div class="stats-strip">
+  <div class="stats-inner">
+    <div class="stat-item reveal">
+      <div class="stat-num">400<span>+</span></div>
+      <div class="stat-label">Appointments Set</div>
+    </div>
+    <div class="stat-item reveal">
+      <div class="stat-num">70<span>-80%</span></div>
+      <div class="stat-label">Show Rate</div>
+    </div>
+    <div class="stat-item reveal">
+      <div class="stat-num">$960<span>K+</span></div>
+      <div class="stat-label">Cash Collected</div>
+    </div>
+    <div class="stat-item reveal">
+      <div class="stat-num">5<span>+</span></div>
+      <div class="stat-label">Offers Worked</div>
+    </div>
+    <div class="stat-item reveal">
+      <div class="stat-num">32</div>
+      <div class="stat-label">Live Automations</div>
+    </div>
+  </div>
+</div>
+
+<!-- VIDEO -->
+<section class="video-section" id="video">
+  <div style="max-width:1100px; margin:0 auto;">
+    <div class="section-eyebrow reveal">Application Video</div>
+    <div class="section-title reveal">Watch Before <span class="dim">You Decide.</span></div>
+    <div class="video-wrap reveal">
+      <div class="video-frame">
+        <div class="video-label">Gahdaco Richard (Richie) / Sales Application</div>
+        <video controls preload="metadata">
+          <source src="Sales Application - Richie _ Instagram - @g.riichie, LinkedIn - Gahdaco Richard.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section class="section-pad" id="experience" style="background: var(--bg-2); border-top: 1px solid var(--glass-border);">
+  <div class="exp-grid page-wrap" style="padding: 0;">
+    <div class="exp-sidebar reveal">
+      <div class="section-eyebrow">Track Record</div>
+      <div class="section-title" style="font-size: 32px; margin-bottom: 0;">Experience</div>
+      <p>3+ years. B2B and B2C. Remote and in-person. Across 5 industries. Every role, I produced.</p>
+    </div>
+    <div class="exp-list">
+
+      <div class="exp-card reveal">
+        <div class="exp-company">Level Up REI</div>
+        <div class="exp-role">Appointment Setter / B2B High-Ticket</div>
+        <div class="exp-date">18 Months / Remote / Real Estate Marketing</div>
+        <ul class="exp-bullets">
+          <li>Set 400+ qualified appointments for a DFY Facebook Ads offer targeting real estate wholesalers nationwide</li>
+          <li>Maintained 70-80% show rate and contributed to a 32% live-to-close rate</li>
+          <li>Managed inbound and outbound pipeline in GoHighLevel, booking 5-9 appointments per week</li>
+          <li>Learned full real estate wholesale operation from acquisition to disposition</li>
+          <li>Proposed AI post-call email summary system that was reviewed and adopted by the team</li>
+        </ul>
+        <div class="exp-badges">
+          <span class="badge">$960K+ Cash Collected</span>
+          <span class="badge">32% Close Rate</span>
+        </div>
+      </div>
+
+      <div class="exp-card reveal">
+        <div class="exp-company">High-Ticket Remote Offers (Multiple)</div>
+        <div class="exp-role">Setter / Closer / Sales Manager</div>
+        <div class="exp-date">2023-2024 / Remote</div>
+        <ul class="exp-bullets">
+          <li>Amazon FBA offer (Zach): solo setter and closer, $80,000 cash collected in one month</li>
+          <li>TikTok/Shopify Ecom offer: managed 6 setters, built hiring funnel, tracked KPIs via Google Sheets, 4-6 appointments per day</li>
+          <li>Fitness offer (Alex Ubank): closed $20,000 in 1.5 weeks, deep gap-building on transformation calls</li>
+          <li>Sold community tickets $40-$500 over the phone, building trust and collecting credit cards within minutes</li>
+          <li>Lucas Ecom offer: cold-called 2022 leads, booked and closed calls personally</li>
+        </ul>
+        <div class="exp-badges">
+          <span class="badge">$80K in One Month</span>
+          <span class="badge">Team of 6 Managed</span>
+        </div>
+      </div>
+
+      <div class="exp-card reveal">
+        <div class="exp-company">Stan Darling Insurance</div>
+        <div class="exp-role">Account Manager / Remote</div>
+        <div class="exp-date">Nov 2024 - Nov 2025</div>
+        <ul class="exp-bullets">
+          <li>Managed 30-50+ active client accounts with strong month-over-month retention</li>
+          <li>Increased overall account revenue by 22% each quarter through upsell positioning and relationship building</li>
+          <li>Improved satisfaction scores 10-30% through consistent communication and strategic support</li>
+          <li>Maintained 100% CRM accuracy across all touchpoints and pipeline stages</li>
+        </ul>
+        <div class="exp-badges">
+          <span class="badge">+22% Revenue Per Quarter</span>
+        </div>
+      </div>
+
+      <div class="exp-card reveal">
+        <div class="exp-company">Insight Pest Solutions</div>
+        <div class="exp-role">Door to Door Sales / Toronto, ON</div>
+        <div class="exp-date">July 2024 - Oct 2024 / Seasonal</div>
+        <ul class="exp-bullets">
+          <li>Generated $60,000 in revenue and sold $100,000 worth of pest control contracts in 3 months</li>
+          <li>Built trust and collected credit cards within 10-15 minutes of initial contact</li>
+          <li>Executed tie-down closing and discount exchanges to drive reviews while increasing per-deal value</li>
+        </ul>
+        <div class="exp-badges">
+          <span class="badge">$100K Contracts in 3 Months</span>
+        </div>
+      </div>
+
+      <div class="exp-card reveal">
+        <div class="exp-company">Country Hills Hyundai</div>
+        <div class="exp-role">Sales / Calgary, AB</div>
+        <div class="exp-date">Nov 2023 - July 2024</div>
+        <ul class="exp-bullets">
+          <li>150+ cold calls daily to generate walk-in traffic during off-season</li>
+          <li>Most cold calls in the dealership 3 months in a row</li>
+          <li>Managed full car sales process: financing, CRM (Activix and VinSolutions), cross-department coordination</li>
+        </ul>
+      </div>
+
+      <div class="exp-card reveal">
+        <div class="exp-company">Vision Electronics</div>
+        <div class="exp-role">Junior Account Executive / Calgary, AB</div>
+        <div class="exp-date">March 2023 - Nov 2023</div>
+        <ul class="exp-bullets">
+          <li>$180,000 in ARR managed</li>
+          <li>Brought on 10 new clients with deals ranging from $15K-$60K from cold call to close</li>
+          <li>Manual outreach via email and phone, processed invoices, sent quotes to local businesses</li>
+        </ul>
+        <div class="exp-badges">
+          <span class="badge">$180K ARR</span>
+          <span class="badge">$60K Deals Cold</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section class="skills-section">
+  <div class="section-pad">
+    <div style="max-width:1100px; margin:0 auto;">
+      <div class="section-eyebrow reveal">Capabilities</div>
+      <div class="section-title reveal">Core Skills</div>
+      <div class="skills-grid reveal">
+        <div class="skill-cell">Appointment Setting</div>
+        <div class="skill-cell">High-Ticket Closing</div>
+        <div class="skill-cell">Cold Calling</div>
+        <div class="skill-cell">Sales Team Management</div>
+        <div class="skill-cell">GHL / Salesforce / HubSpot</div>
+        <div class="skill-cell">Pipeline Management</div>
+        <div class="skill-cell">Objection Handling</div>
+        <div class="skill-cell">D2D and Outside Sales</div>
+        <div class="skill-cell">B2B and B2C Sales</div>
+        <div class="skill-cell">Zoom Closing</div>
+        <div class="skill-cell">Negotiation</div>
+        <div class="skill-cell">Copywriting</div>
+        <div class="skill-cell">Google Sheets KPI Tracking</div>
+        <div class="skill-cell">Hiring Funnel Building</div>
+        <div class="skill-cell">Marketing Strategy</div>
+        <div class="skill-cell">Website and Funnel Creation</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- AI + OPS -->
+<section class="ai-section grid-bg" id="ai">
+  <div style="position:absolute;top:0;left:0;right:0;bottom:0;background:radial-gradient(ellipse at 20% 50%, rgba(180,10,10,0.07) 0%, transparent 60%);pointer-events:none;"></div>
+  <div style="max-width:1100px; margin:0 auto; position:relative; z-index:2;">
+    <div class="section-eyebrow reveal">Differentiator</div>
+    <div class="section-title reveal">AI + <span style="color:var(--white-30);">Ops.</span></div>
+    <div class="ai-grid">
+      <div class="glass-card featured reveal">
+        <div class="card-title">Why This Separates Me From Every Other Setter</div>
+        <div class="card-body">
+          Most setters just dial. I look at your system, find what is broken, and either fix it or build something from scratch. I have 32 live automations running across my own operation. I proposed an AI email drafting system to my last team and they adopted it within 48 hours. I build tools that make sales teams faster without adding headcount.
+        </div>
+      </div>
+      <div class="glass-card reveal">
+        <div class="card-title">Automation Stack</div>
+        <div class="card-body">
+          32 live automations across CRM workflows, outbound sequences, onboarding pipelines, and reporting systems.
+          <div class="tech-pills">
+            <span class="pill">N8N</span>
+            <span class="pill">Make.com</span>
+            <span class="pill">Zapier</span>
+            <span class="pill">GHL</span>
+            <span class="pill">Claude AI</span>
+            <span class="pill">Gemini</span>
+          </div>
+        </div>
+      </div>
+      <div class="glass-card reveal">
+        <div class="card-title">What I Have Built</div>
+        <div class="card-body">
+          <ul>
+            <li>Post-call AI email summary system, proposed and adopted by last team</li>
+            <li>Inbound and outbound CRM automation sequences</li>
+            <li>Onboarding workflows and quarterly check-in automations</li>
+            <li>KPI tracking dashboards in Google Sheets</li>
+            <li>Hiring funnels and setter onboarding processes</li>
+          </ul>
+        </div>
+      </div>
+      <div class="glass-card reveal">
+        <div class="card-title">Technical</div>
+        <div class="card-body">
+          <ul>
+            <li>Claude Code, CLI, API integration, prompt engineering</li>
+            <li>Webhook setup and API connections</li>
+            <li>Google Sheets formulas and automated reporting</li>
+            <li>Website and funnel creation</li>
+            <li>Documentation and system design</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHAT I BRING -->
+<section class="bring-section">
+  <div style="max-width:1100px; margin: 0 auto;">
+    <div class="section-eyebrow reveal">Value Add</div>
+    <div class="section-title reveal">What I Bring <span style="color:var(--white-30);">to Your Team.</span></div>
+    <div class="bring-grid">
+      <div class="bring-card reveal">
+        <div class="bring-number">01</div>
+        <h3>Setting and Closing</h3>
+        <p>400+ appointments set. 70-80% show rate. Can step into closing when needed. Already done it across multiple offers.</p>
+      </div>
+      <div class="bring-card reveal">
+        <div class="bring-number">02</div>
+        <h3>Team Management</h3>
+        <p>Built hiring funnels, managed 6 setters, ran daily cadences, built KPI tracking, reported directly to offer owners.</p>
+      </div>
+      <div class="bring-card reveal">
+        <div class="bring-number">03</div>
+        <h3>Ops and Systems</h3>
+        <p>I find what is broken in your sales process and fix it. Scripts, workflows, CRM hygiene, all of it.</p>
+      </div>
+      <div class="bring-card reveal">
+        <div class="bring-number">04</div>
+        <h3>AI Integration</h3>
+        <p>32 live automations. I build tools that make your team faster without adding headcount or budget.</p>
+      </div>
+      <div class="bring-card reveal">
+        <div class="bring-number">05</div>
+        <h3>Pipeline Analysis</h3>
+        <p>I track what matters. Show rates, close rates, ghost rates, lead quality. I know what the numbers mean and what to do about them.</p>
+      </div>
+      <div class="bring-card reveal">
+        <div class="bring-number">06</div>
+        <h3>Mentality</h3>
+        <p>I hate hitting the pillow unfulfilled. That is not a motivational line. It is the reason I am in this space and why I do not tolerate mediocrity in my work.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section grid-bg" id="contact">
+  <div class="cta-orb"></div>
+  <div class="cta-inner">
+    <div class="section-eyebrow reveal" style="justify-content:center; display:block;">Ready to Talk</div>
+    <h2 class="reveal">Add a Weapon<br><span>to Your Team.</span></h2>
+    <p class="reveal">Available for appointment setting, closing, sales management, and AI/ops roles. Remote. North American hours. No hand-holding required.</p>
+    <div class="cta-buttons reveal">
+      <a href="mailto:Rgahdaco@gmail.com" class="btn-primary">Email Me Directly</a>
+      <a href="tel:4039669522" class="btn-ghost">(403) 966-9522</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-name">Gahdaco Richard (Richie)</div>
+  <div class="footer-links">
+    <a href="mailto:Rgahdaco@gmail.com">Rgahdaco@gmail.com</a>
+    <a href="https://www.instagram.com/g.riichie/" target="_blank" rel="noopener">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+      @g.riichie
+    </a>
+    <a href="https://www.linkedin.com/in/gahdaco-richard-429783230/" target="_blank" rel="noopener">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+      Gahdaco Richard
+    </a>
+    <a href="tel:4039669522">(403) 966-9522</a>
+  </div>
+</footer>
+
+<script>
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) {
+        setTimeout(() => entry.target.classList.add('visible'), i * 60);
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+  reveals.forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>
